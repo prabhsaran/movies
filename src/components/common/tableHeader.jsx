@@ -14,19 +14,22 @@ class TableHeader extends Component {
   };
 
   render() {
-
-    console.log('Columns', this.props.columns);
+    console.log("Columns", this.props.columns);
     return (
       <thead>
         <tr>
           {this.props.columns.map(column => (
-            <th onClick={() => this.raiseSort(column.path)}>{column.label}</th>
+            <th
+              key={column.path || column.key}
+              onClick={() => this.raiseSort(column.path)}
+            >
+              {column.label}
+            </th>
           ))}
         </tr>
       </thead>
     );
   }
 }
-
 
 export default TableHeader;
